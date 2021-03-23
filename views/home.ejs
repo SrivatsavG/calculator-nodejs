@@ -1,0 +1,100 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/stylesheets/home.css" />
+    
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="title">Calculator</div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-sm leftCol">
+          <form action="/calculate" method="POST">
+            <table class="calculator">
+              <tr class="tableRow">
+                <td colspan="3">
+                  <input type="text" id="equation" name="equation" value=<%= result %>>
+                </td>
+                <td>
+                  <input
+                    type="button"
+                    value="c"
+                    onclick="clr()"
+                    class="cancel"
+                  />
+                </td>
+              </tr>
+              <tr class="tableRow">
+                <td><input type="button" value="1" onclick="dis('1')" /></td>
+                <td><input type="button" value="2" onclick="dis('2')" /></td>
+                <td><input type="button" value="3" onclick="dis('3')" /></td>
+                <td><input type="button" value="/" onclick="dis('/')" /></td>
+              </tr>
+              <tr class="tableRow">
+                <td><input type="button" value="4" onclick="dis('4')" /></td>
+                <td><input type="button" value="5" onclick="dis('5')" /></td>
+                <td><input type="button" value="6" onclick="dis('6')" /></td>
+                <td><input type="button" value="-" onclick="dis('-')" /></td>
+              </tr>
+              <tr class="tableRow">
+                <td><input type="button" value="7" onclick="dis('7')" /></td>
+                <td><input type="button" value="8" onclick="dis('8')" /></td>
+                <td><input type="button" value="9" onclick="dis('9')" /></td>
+                <td><input type="button" value="+" onclick="dis('+')" /></td>
+              </tr>
+              <tr class="tableRow">
+                <td><input type="button" value="." onclick="dis('.')" /></td>
+                <td><input type="button" value="0" onclick="dis('0')" /></td>
+                <!-- solve function call function solve to evaluate value -->
+                <td>
+                  <input
+                    type="submit"
+                    value="="
+                    class="equals"
+                  />
+                </td>
+                <td><input type="button" value="*" onclick="dis('*')" /></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <div class="col-sm rightCol">
+          <div class="listTitle">History</div>
+          <% if (calculations.length > 0) { %>
+          <div class="container col-sm">
+            <% for (var i = 0 ; i < 10 && i < calculations.length; i++) { %>
+            <div class="row calcElement"><p><%= i+1 %>) <%= calculations[i].equation %></p></div>
+            <% } %>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="description">Srivatsav Gopalakrishnan</div>
+      </div>
+    </div>
+
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/calc.js"></script>
+  </body>
+</html>
