@@ -1,7 +1,6 @@
 var bodyParser = require("body-parser"),
   express = require("express"),
   mongoose = require("mongoose"),
-  helmet = require("helmet"),
   compression = require("compression"),
   app = express();
 
@@ -11,7 +10,6 @@ app.use(express.static(__dirname + "/public")); // TO SERVE FILES STATICALLY
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(helmet());
 app.use(compression());
 
 const Calculation = require("./models/calculation");
