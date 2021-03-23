@@ -46,7 +46,7 @@ app.use(async (error, req, res, next) => {
 
 //-------------LISTEN---------------
 mongoose
-  .connect(MONGODB_URI)
+  .connect(MONGODB_URI,{useUnifiedTopology: true,useNewUrlParser: true})
   .then((result) => {
     console.log("==============SERVER HAS STARTED===========");
     app.listen(process.env.PORT || 3000);
