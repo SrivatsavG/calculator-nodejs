@@ -8,3 +8,6 @@
 
 ### Details
 Basic calculator that stores the last 10 calculations performed by its users.
+
+### Website
+https://srivatsav-calculator.herokuapp.com/calculate
